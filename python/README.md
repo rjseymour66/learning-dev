@@ -5,18 +5,18 @@
 ### Create virtual env
 
 ```bash
-python3 -m venv ./<venv-name>
-	Ex: python3 -m venv ./venv
+$ python3 -m venv ./<venv-name>
+# Ex: python3 -m venv ./venv
 ```
 
 ### start venv
 ```bash
-source ./<venv-name>/bin/activate # you don't need the './' before the command, but the tutorial used it
+$ source ./<venv-name>/bin/activate # you don't need the './' before the command, but the tutorial used it
 ```
 
 ### exit venv
 ```bash
-deactivate
+$ deactivate
 ```
 
 ## pip
@@ -26,9 +26,9 @@ deactivate
 
 ### Commands
 ```bash
-pip list
-pip show <package-name>
-pip uninstall <package-name>
+$ pip list
+$ pip show <package-name>
+$ pip uninstall <package-name>
 ```
 
 ## requirements.txt
@@ -54,8 +54,8 @@ To upgrade new requirements, enter pip install --upgrade -r requirements.txt
 
 requirements_dev.txt
 
-```python
--r requirements.txt # copies regular requirements.txt files into this 
+```bash
+$ -r requirements.txt # copies regular requirements.txt files into this 
 prod-packageName>=5.3.5
 ```
 
