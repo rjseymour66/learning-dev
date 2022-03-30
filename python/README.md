@@ -3,14 +3,21 @@
 ## venv
 
 ### Create virtual env
+
+```bash
 python3 -m venv ./<venv-name>
 	Ex: python3 -m venv ./venv
+```
 
 ### start venv
+```bash
 source ./<venv-name>/bin/activate # you don't need the './' before the command, but the tutorial used it
+```
 
 ### exit venv
+```bash
 deactivate
+```
 
 ## pip
 
@@ -18,9 +25,11 @@ deactivate
 2. pip uninstall <package-name> -y
 
 ### Commands
-	pip list
-	pip show <package-name>
-	pip uninstall <package-name>
+```bash
+pip list
+pip show <package-name>
+pip uninstall <package-name>
+```
 
 ## requirements.txt
 
@@ -31,10 +40,13 @@ Requirements file lists all of the program's dependencies. You can pass this pro
 3. Go to your new venv enter pip install -r requirements.txt to install every package listed in tthe file. 
 
 Manually change requirements.txt to update package version requirements.
-	== means the exact version
-	>= means version greater than or equal to 
-	, != 1.0.1 means there is a restriction. Put those after a comma in the version
-	Ex: pyvim>=3.0.2, <= 4.0.0 or , != 3.0.6
+
+```
+== means the exact version
+>= means version greater than or equal to 
+, != 1.0.1 means there is a restriction. Put those after a comma in the version
+Ex: pyvim>=3.0.2, <= 4.0.0 or , != 3.0.6
+```
 
 To upgrade new requirements, enter pip install --upgrade -r requirements.txt
 
@@ -42,8 +54,10 @@ To upgrade new requirements, enter pip install --upgrade -r requirements.txt
 
 requirements_dev.txt
 
+```python
 -r requirements.txt # copies regular requirements.txt files into this 
 prod-packageName>=5.3.5
+```
 
 requirements_locked.txt is a copy of requirements.txt
 	- special version that has locked down, known good dependencies
