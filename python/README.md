@@ -119,9 +119,17 @@ Happy birthday to you,
 Happy birthday dear person,
 Happy birthday to you!'''
 ```
+```python
+str(9.87)       # create a string out of another data type
+
+name = 'Jack'
+name * 4        # multiply strings
+
+name[1]         # 'a', get char from string
 
 
 
+```
 
 
 
