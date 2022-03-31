@@ -149,7 +149,44 @@ offsets[2:7]    # 23456
 # [start:end:step] from the start offset to the end offset - 1 (end is non-inclusive), skipping characters by step
 offsets[2:7:2]  # 246
 ```
+## Built-in functions
 
+```python
+offsets = '0123456789'
+
+len(offsets)        # 10
+
+tasks = 'one,two,three,four'
+# if you don't provide a separator, split() uses anything that makes sense
+tasks.split(',')    # ['one', 'two', 'three', 'four']
+tasks.split()       # ['one,two,three,four']
+
+'''
+join() collapses a list of strings into a single string. Use the 
+following syntax:
+<separator>.join(list_of_strings)
+'''
+
+str_list = ['one', 'two', 'three', 'four']
+'\n'.join(str_list)
+'one\ntwo\nthree\nfour'
+
+' '.join(str_list)
+'one two three four'
+
+'''
+replace() does simple substring substitution
+'''
+
+sub = 'This is the dumbest string ever'
+sub.replace('dumb', 'cool')
+'This is the coolest string ever'
+
+
+
+
+
+```
 
 
 
