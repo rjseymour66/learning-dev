@@ -161,11 +161,9 @@ tasks = 'one,two,three,four'
 tasks.split(',')    # ['one', 'two', 'three', 'four']
 tasks.split()       # ['one,two,three,four']
 
-'''
-join() collapses a list of strings into a single string. Use the 
-following syntax:
-<separator>.join(list_of_strings)
-'''
+# join() collapses a list of strings into a single string. Use the 
+# following syntax:
+# <separator>.join(list_of_strings)
 
 str_list = ['one', 'two', 'three', 'four']
 '\n'.join(str_list)
@@ -174,9 +172,7 @@ str_list = ['one', 'two', 'three', 'four']
 ' '.join(str_list)
 'one two three four'
 
-'''
-replace() does simple substring substitution
-'''
+# replace() does simple substring substitution
 
 sub = 'This is the dumbest string ever'
 sub.replace('dumb', 'cool')
