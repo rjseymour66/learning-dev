@@ -155,34 +155,40 @@ offsets[2:7:2]  # 246
 offsets = '0123456789'
 
 len(offsets)        # 10
+```
+### split()
 
+```python
 tasks = 'one,two,three,four'
 # if you don't provide a separator, split() uses anything that makes sense
 tasks.split(',')    # ['one', 'two', 'three', 'four']
 tasks.split()       # ['one,two,three,four']
+```
 
-# join() collapses a list of strings into a single string. Use the 
-# following syntax:
-# <separator>.join(list_of_strings)
+### join()
+join() collapses a list of strings into a single string. Use the 
+following syntax:
+<separator>.join(list_of_strings)
 
+```python
 str_list = ['one', 'two', 'three', 'four']
 '\n'.join(str_list)
 'one\ntwo\nthree\nfour'
 
 ' '.join(str_list)
 'one two three four'
+```
 
-# replace() does simple substring substitution
+### replace() 
 
+replace() does simple substring substitution
+
+```python
 sub = 'This is the dumbest string ever'
 sub.replace('dumb', 'cool')
 'This is the coolest string ever'
-
-
-
-
-
 ```
+
 
 
 
