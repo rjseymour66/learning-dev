@@ -118,8 +118,6 @@ song = '''Happy birthday to you,
 Happy birthday to you,
 Happy birthday dear person,
 Happy birthday to you!'''
-```
-```python
 
 # create a string out of another data type
 str(9.87)
@@ -130,13 +128,37 @@ name * 4
 
 # 'a', get char from string
 name[1]
+```
+## Substring with a slice
 
-
-
+```python
+offsets = '0123456789'
 ```
 
+[:] extracts the entire sequence from start to end
+```python
+offsets[:]  # 0123456789
+```
 
+[start:] from the start offset to the end, inclusive
+```python
+offsets[5:]     # 56789
+```
 
+[:end] from the beginning to the end offset -1 (non-inclusive)
+```python
+offsets[:5]     # 01234
+```
+
+[start:end] from the start offset to the end offset - 1 (end is non-inclusive)
+```python
+offsets[2:7]    # 23456
+```
+
+[start:end:step] from the start offset to the end offset - 1 (end is non-inclusive), skipping characters by step
+```python
+offsets[2:7:2]  # 246
+```
 
 
 
