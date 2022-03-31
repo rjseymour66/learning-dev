@@ -120,12 +120,16 @@ Happy birthday dear person,
 Happy birthday to you!'''
 ```
 ```python
-str(9.87)       # create a string out of another data type
 
+# create a string out of another data type
+str(9.87)
+
+# multiply strings
 name = 'Jack'
-name * 4        # multiply strings
+name * 4
 
-name[1]         # 'a', get char from string
+# 'a', get char from string
+name[1]
 
 
 
