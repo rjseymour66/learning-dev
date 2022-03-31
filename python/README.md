@@ -133,30 +133,20 @@ name[1]
 
 ```python
 offsets = '0123456789'
-```
 
-[:] extracts the entire sequence from start to end
-```python
+# [:] extracts the entire sequence from start to end
 offsets[:]  # 0123456789
-```
 
-[start:] from the start offset to the end, inclusive
-```python
+# [start:] from the start offset to the end, inclusive
 offsets[5:]     # 56789
-```
 
-[:end] from the beginning to the end offset -1 (non-inclusive)
-```python
+# [:end] from the beginning to the end offset -1 (non-inclusive)
 offsets[:5]     # 01234
-```
 
-[start:end] from the start offset to the end offset - 1 (end is non-inclusive)
-```python
+# [start:end] from the start offset to the end offset - 1 (end is non-inclusive)
 offsets[2:7]    # 23456
-```
 
-[start:end:step] from the start offset to the end offset - 1 (end is non-inclusive), skipping characters by step
-```python
+# [start:end:step] from the start offset to the end offset - 1 (end is non-inclusive), skipping characters by step
 offsets[2:7:2]  # 246
 ```
 
