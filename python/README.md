@@ -121,6 +121,35 @@ Happy birthday to you!'''
 
 # create a string out of another data type
 str(9.87)
+song.startswith('Happy')    # True
+song.endswith('everyone!')  # False
+# Find the offset of the first occurrence (returns -1 if not found)
+word = 'to'
+song.find(word)
+15
+# last occurrence (returns -1 if not found)
+song.rfind(word)
+89
+# number of occurrences
+song.count(word)
+3
+# all chars letters or numbers?
+song.isalnum()
+False
+# string case funcs
+phrase.strip(' .')
+'you win some'
+phrase = 'you win some ...'
+phrase.capitalize()
+'You win some ...'
+phrase.title()
+'You Win Some ...'
+phrase.upper()
+'YOU WIN SOME ...'
+phrase.lower()
+'you win some ...'
+phrase.swapcase()
+'YOU WIN SOME ...'
 
 # multiply strings
 name = 'Jack'
@@ -188,12 +217,27 @@ sub = 'This is the dumbest string ever'
 sub.replace('dumb', 'cool')
 'This is the coolest string ever'
 ```
+### Formatting strings
+
+```python
+
+animal = 'dog'
+place = 'house'
+
+# {} and format()
+'The {} is in the {}.'.format(animal, place)
+'The dog is in the house.'
+'The {a} is in the {b}.'.format(a='cat', b='litter box')
+'The cat is in the litter box.'
+
+# f-strings
+f'The {animal} is in the {place}'
+'The dog is in the house'
+f'The {animal.capitalize()} is in the {place.rjust(20)}'
+'The Dog is in the                house'
 
 
-
-
-
-
+```
 
 
 
