@@ -123,19 +123,24 @@ Happy birthday to you!'''
 str(9.87)
 song.startswith('Happy')    # True
 song.endswith('everyone!')  # False
+
 # Find the offset of the first occurrence (returns -1 if not found)
 word = 'to'
 song.find(word)
 15
+
 # last occurrence (returns -1 if not found)
 song.rfind(word)
 89
+
 # number of occurrences
 song.count(word)
 3
+
 # all chars letters or numbers?
 song.isalnum()
 False
+
 # string case funcs
 phrase.strip(' .')
 'you win some'
@@ -235,10 +240,9 @@ f'The {animal} is in the {place}'
 'The dog is in the house'
 f'The {animal.capitalize()} is in the {place.rjust(20)}'
 'The Dog is in the                house'
-
-
 ```
 
+## Loops
 
 
 
