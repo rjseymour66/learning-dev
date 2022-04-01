@@ -326,7 +326,7 @@ list((5, -1, -1))
 
 ## Tuples
 
-Tuples are immutable.
+Tuples are immutable, and can contain zero or more Python objects of any type.
 
 ## Lists
 
