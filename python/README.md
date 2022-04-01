@@ -244,13 +244,93 @@ f'The {animal.capitalize()} is in the {place.rjust(20)}'
 
 ## Loops
 
+### while loop
 
+```python
+count = 0
+while count < 5:
+     print(count)
+     count += 1 
+0
+1
+2
+3
+4
+```
 
+### for and in with iterators
 
+Iterators allow you to traverse a data structure without knowing how loarge they are or how they are implemented. They include:
+- strings
+- lists
+- tuples
+- dictionaries
 
+```python
+# for element in interable:
+#   do something
 
+sentence = 'A string is an iterable'
+for letter in sentence:
+     print(letter)
+ 
+A
+ 
+s
+t
+r
+i
+n
+g
+ 
+i
+...
+```
 
+### range() to generate numbers
 
+`range()` returns a stream of numbers within a specified range without having to use memory on a data structure. `range()` returns in iterable object that you can step through with a `for ... in` loop or convert to a sequence, such as a list.
+
+`range(start: stop: step)`
+
+```python
+
+# standard usage
+for x in range(0, 5):
+     print(x) 
+0
+1
+2
+3
+4
+
+# create a list
+list(range(0, 5))
+[0, 1, 2, 3, 4]
+
+# count down with a step
+for x in range(5, -1, -1):
+     print(x)
+ 
+5
+4
+3
+2
+1
+0
+
+# create a list
+list((5, -1, -1))
+[5, -1, -1]
+```
+
+## Tuples
+
+Tuples are immutable
+
+## Lists
+
+Lists are mutable.
 
 
 
