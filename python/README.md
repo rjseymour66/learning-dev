@@ -242,9 +242,9 @@ f'The {animal.capitalize()} is in the {place.rjust(20)}'
 'The Dog is in the                house'
 ```
 
-## Loops
+# Loops
 
-### while loop
+## while loop
 
 ```python
 count = 0
@@ -258,7 +258,7 @@ while count < 5:
 4
 ```
 
-### for and in with iterators
+## for and in with iterators
 
 Iterators allow you to traverse a data structure without knowing how loarge they are or how they are implemented. They include:
 - strings
@@ -287,7 +287,7 @@ i
 ...
 ```
 
-### range() to generate numbers
+## range() to generate numbers
 
 `range()` returns a stream of numbers within a specified range without having to use memory on a data structure. `range()` returns in iterable object that you can step through with a `for ... in` loop or convert to a sequence, such as a list.
 
@@ -324,11 +324,11 @@ list((5, -1, -1))
 [5, -1, -1]
 ```
 
-## Tuples
+# Tuples
 
 Tuples and lists can both contain zero or more Python objects of any type. 
 
-### Creating a tuple 
+## Creating a tuple 
 
 Use parentheses or a ',':
 
@@ -355,7 +355,7 @@ Use parentheses or a ',':
 ```
 
 
-### Tuple actions
+## Tuple actions
 
 When you assign more than one tuple value at the same time:
 
@@ -419,7 +419,7 @@ True
 > id(third)
 2049614519888
 ```
-### Iterate through a tuple
+## Iterate through a tuple
 
 Use for and in to iterate through a tuple:
 
@@ -435,11 +435,11 @@ three
 four
 ```
 
-## Lists
+# Lists
 
 Use lists to keep track of ordered items, especially when the order might change. Lists are mutable.
 
-### Creating a list
+## Creating a list
 
 ```python
 
@@ -474,7 +474,7 @@ Use lists to keep track of ordered items, especially when the order might change
 ['once', 'in', 'a', 'lifetime']
 ```
 
-### Getting list items
+## Getting list items
 
 ```python
 > turtles = ['Leonardo', 'Donatello', 'Michaelangelo', 'Raphael']
@@ -488,7 +488,7 @@ Use lists to keep track of ordered items, especially when the order might change
 ['Leonardo', 'Donatello']
 ```
 
-### List functions
+## List functions
 
 ```python
 > nums = ['one', 'two', 'three', 'four']
@@ -624,7 +624,7 @@ True
 True
 ```
 
-### Iterating through lists 
+## Iterating through lists 
 
 ```python
 
@@ -653,7 +653,7 @@ four :   quatro
 five :   cinco
 ```
 
-### List comprehensions
+## List comprehensions
 
 List comprehensions are a way to build a list. It uses the following format:
 
@@ -746,7 +746,7 @@ range(1, 4)
 3 y
 ```
 
-### Lists of lists 
+## Lists of lists 
 
 Exactly what it sounds like:
 
@@ -758,4 +758,227 @@ Exactly what it sounds like:
 > nums
 [[2, 4, 6, 8, 10], [1, 3, 5, 7, 9], [1, 7, 13, 19, 23]]
 
+```
+
+# Dictionaries
+
+Dictionaries are key/value pairs. Keys are often strings, but they can be any value.
+
+## Creating dictionaries
+
+```python
+# with {}
+> empty_dict = {}
+> empty_dict
+{}
+> beatles = {
+...     "John": "Lennon",
+...     "Paul": "McCartney",
+...     "George": "Harrison",
+...     "Ringo": "Starr",
+...     }
+> beatles
+{'John': 'Lennon', 'Paul': 'McCartney', 'George': 'Harrison', 'Ringo': 'Starr'}
+
+# Create with dict()
+> poet = dict(first='Edgar', middle='Alan', last='Poe')
+> poet
+{'first': 'Edgar', 'middle': 'Alan', 'last': 'Poe'}
+
+```
+You can convert two-value sequences into a dictionary:
+
+```python
+# two-item tuples
+> tups = [('a', 'z'), ('b', 'y'), ('c', 'x')]
+> dict(tups)
+{'a': 'z', 'b': 'y', 'c': 'x'}
+
+# tuple of two-item lists
+> tup_of_lis = (['a', 'z'], ['b', 'y'], ['c', 'x'])
+> dict(tup_of_lis)
+{'a': 'z', 'b': 'y', 'c': 'x'}
+> two_char_str = ['ab', 'cd', 'ef']
+
+# two-char strings
+> dict(two_char_str)
+{'a': 'b', 'c': 'd', 'e': 'f'}
+
+```
+
+## Adding or changing an item by [key]
+
+If there is no item with the key, then it is added. If there is, then it is replaced:
+
+```python
+> beatles = {
+...     'Lennon': 'John',
+...     'McCartney': 'Paul',
+...     'Harrison': 'George',
+...     'Starr': 'Ringo',
+...     }
+> beatles
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo'}
+
+# Add an item
+> beatles['Preston'] = 'Billy'
+> beatles
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo', 'Preston': 'Billy'}
+
+# Add, then replace an item
+> beatles['Clapton'] = 'Erik'
+> beatles
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo', 'Preston': 'Billy', 'Clapton': 'Erik'}
+> beatles['Clapton'] = 'Eric'
+> beatles
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo', 'Preston': 'Billy', 'Clapton': 'Eric'}
+```
+
+## Getting items 
+
+Use .get() or .keys() to return items from the dictionary:
+
+```python
+# get by key
+> beatles.get('Martin')
+> beatles.get('Martin', 'Not in the Beatles')
+'Not in the Beatles'
+> beatles.get('Harrison')
+'George'
+
+# get all keys in the dict
+> beatles.keys()
+dict_keys(['Lennon', 'McCartney', 'Harrison', 'Starr', 'Preston', 'Clapton'])
+
+# get all values in the dict
+> beatles.values()
+dict_values(['John', 'Paul', 'George', 'Ringo', 'Billy', 'Eric'])
+
+# store them in a list
+> list(beatles.values())
+['John', 'Paul', 'George', 'Ringo', 'Billy', 'Eric']
+
+# get the items as a tuple
+> list(beatles.items())
+[('Lennon', 'John'), ('McCartney', 'Paul'), ('Harrison', 'George'), ('Starr', 'Ringo'), ('Preston', 'Billy'), ('Clapton', 'Eric')]
+
+# length
+> len(beatles)
+6
+> stones = {
+...     'Jagger': 'Mick',
+...     'Richards': 'Keith',
+...     'Watts': 'Charlie',
+...     'Wyman': 'Bill'
+... ,}
+> stones
+{'Jagger': 'Mick', 'Richards': 'Keith', 'Watts': 'Charlie', 'Wyman': 'Bill'}
+
+# combine dicts with **
+> supergroup = {**beatles, **stones}
+> supergroup
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo', 'Preston': 'Billy', 'Clapton': 'Eric', 'Jagger': 'Mick', 'Richards': 'Keith', 'Watts': 'Charlie', 'Wyman': 'Bill'}
+> ruttles = {}
+
+# combine dicts with update()
+> ruttles.update(beatles)
+> ruttles
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo', 'Preston': 'Billy', 'Clapton': 'Eric'}
+
+# delete an item by key
+> del beatles['Preston']
+> beatles
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo', 'Clapton': 'Eric'}
+> del beatles['Clapton']
+> beatles
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo'}
+
+# remove an item with .pop()
+> beatles.pop('Martin')
+'George'
+> beatles
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo'}
+
+# delete everything in the dict with .clear()
+> ruttles
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo', 'Preston': 'Billy', 'Clapton': 'Eric'}
+> ruttles.clear()
+> ruttles
+{}
+
+# check for a value with 'in'
+> 'Lennon' in beatles
+True
+
+# copy()
+> ruttles = beatles.copy()
+> ruttles
+{'Lennon': 'John', 'McCartney': 'Paul', 'Harrison': 'George', 'Starr': 'Ringo'}
+
+# check equality
+> beatles == ruttles
+True
+
+# for in loops print key by default
+> for guy in beatles:
+...     print(guy)
+... 
+Lennon
+McCartney
+Harrison
+Starr
+
+# use .values() to get values
+> for guy in beatles.values():
+...     print(guy)
+... 
+John
+Paul
+George
+Ringo
+
+# use items() to get a tuple for each dict entry
+> for guy in beatles.items():
+...     print(guy)
+... 
+('Lennon', 'John')
+('McCartney', 'Paul')
+('Harrison', 'George')
+('Starr', 'Ringo')
+
+# assign var names to k/v pairs
+> for last, first in beatles.items():
+...     print(first, '\'s last name is ', last)
+... 
+John 's last name is  Lennon
+Paul 's last name is  McCartney
+George 's last name is  Harrison
+Ringo 's last name is  Starr
+```
+## Dictionary comprehensions
+
+Like lists, dictionaries have comprehension that use the following format:
+
+{`key_expression` : `value_expression` for `expression` in `iterable`}
+
+The following example creates a dictionary where each letter in `word` is a key, and its value is the number of occurrences of each key:
+```python
+> word = 'better'
+# for every letter in word, create a k/v pair 
+> better_count = {letter: word.count(letter) for letter in word}
+> better_count
+{'b': 1, 'e': 2, 't': 2, 'r': 1}
+
+```
+
+Dictionary comprehensions with conditions using the following format:
+
+{`key_expression` : `value_expression` for `expression` in `iterable` if `condition`}
+
+```python
+> vowels = 'aeiou'
+> word = 'superpower'
+> vowel_counts = {letter: word.count(letter) for letter in set(word) if letter in vowels}
+> vowel_counts
+{'o': 1, 'u': 1, 'e': 2}
 ```
