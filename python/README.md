@@ -984,3 +984,222 @@ Dictionary comprehensions with conditions using the following format:
 ```
 
 # Sets
+
+A set is like a dictionary with only keys. Each key must be unique.
+
+## Creating sets
+
+Sets are unordered:
+
+```python
+> empty_set = set()
+> empty_set
+set()
+> evens = {2, 4, 6, 8}
+> evens
+{8, 2, 4, 6}
+> odds = {1, 3, 5, 7, 9}
+> odds
+{1, 3, 5, 7, 9}
+
+# Convert data structures to sets
+
+> set('letters')
+{'e', 's', 't', 'r', 'l'}
+> set(['Leonardo', 'Donatello', 'Raphael', 'Michaelangeo'])
+{'Leonardo', 'Michaelangeo', 'Donatello', 'Raphael'}
+> set( ('dog', 'cat', 'fish') )
+{'cat', 'fish', 'dog'}
+
+# Only uses keys from dictionaries
+> set( {'John': 'Lennon', 'Paul': 'McCartney', 'George': 'Harrison', 'Ringo': 'Starr'} )
+{'John', 'George', 'Ringo', 'Paul'}
+
+```
+
+## Set functions
+
+```python
+> evens
+{8, 2, 4, 6}
+> len(evens)
+4
+> evens.add(10)
+> evens
+{2, 4, 6, 8, 10}
+> evens.remove(10)
+> evens
+{2, 4, 6, 8}
+```
+## Iterate and test with for and in
+
+Sets are often nested, like the following example that is an example of a pizza menu:
+
+```python
+> menu = {
+    'classic': {'pepperoni', 'cheese'},
+    'italian': {'sausage', 'peppers', 'onions'},
+    'veggie': {'peppers', 'onions', 'mushrooms', 'olives'},
+    'supreme': {'pepperoni', 'ham', 'beef', 'sausage', 'peppers', 'onions', 'mushrooms', 'olives'}
+}
+
+> for pizza, topping in menu.items():
+...     if 'onions' in topping:
+...             print(pizza)
+... 
+italian
+veggie
+supreme
+
+> for pizza, topping in menu.items():
+...     if 'onions' in topping and not ('sausage' in topping):
+...             print(pizza)
+... 
+veggie
+
+```
+
+## Combinations
+
+
+```python
+
+# Set intersection (&) checks for combinations
+# of set values
+> for pizza, topping in menu.items():
+...     if topping & {'peppers', 'onions'}:
+...             print(pizza)
+... 
+italian
+veggie
+supreme
+
+> for pizza, topping in menu.items():
+...     if 'onions' in topping and not topping & {'mushrooms', 'olives'}:
+...             print(pizza)
+... 
+italian
+
+
+```
+
+## Operators
+
+```python
+
+> a = {1, 2}
+> b = {2, 3}
+> a
+{1, 2}
+> b
+{2, 3}
+
+# get the intersection
+> a & b
+{2}
+> a.intersection(b)
+{2}
+
+
+> fave = menu['italian']
+> fave
+{'peppers', 'onions', 'sausage'}
+> worst = menu['veggie']
+> worst
+{'peppers', 'mushrooms', 'onions', 'olives'}
+> fave & worst
+{'peppers', 'onions'}
+
+# get the union (combine both sets)
+> fave | worst
+{'peppers', 'olives', 'onions', 'sausage', 'mushrooms'}
+> fave.union(worst)
+{'peppers', 'olives', 'onions', 'sausage', 'mushrooms'}
+> a | b
+{1, 2, 3}
+
+# difference
+> a - b
+{1}
+> fave - worst
+{'sausage'}
+
+# exclusive or (item in one set but not both)
+> a ^ b
+{1, 3}
+> fave ^ worst
+{'olives', 'sausage', 'mushrooms'}
+
+# subsets
+> a <= b
+False
+> a.issubset(b)
+False
+> fave <= worst
+False
+> fave.issubset(worst)
+False
+> best = menu['supreme']
+> fave <= best
+True
+> fave < best
+True
+
+# supersets
+> fave >= best
+False
+> fave.issuperset(worst)
+False
+> fave >= fave
+True
+> fave > fave
+False
+
+```
+
+## Set comprehensions
+
+Set comprehensions use the following format:
+
+[`expression` for `expression` in `iterable`]
+
+You can add a condition afer the iterable:
+
+[`expression` for `expression` in `iterable` if `condition`]
+
+```python
+> even_set = {number for number in range(1,20) if number % 2 == 0}
+> even_set
+{2, 4, 6, 8, 10, 12, 14, 16, 18}
+
+```
+## Immutable sets
+
+Use frozenset() to create a set that you cannot change:
+
+```python
+
+# create a frozenset()
+> frozenset([1, 2, 3])
+frozenset({1, 2, 3})
+> frozenset(set([2, 4, 6]))
+frozenset({2, 4, 6})
+> frozenset({1, 2, 3})
+frozenset({1, 2, 3})
+> frozenset( (2, 3, 1) )
+frozenset({1, 2, 3})
+
+# cannot change a frozenset()
+
+> test = frozenset({1, 2, 3})
+> test
+frozenset({1, 2, 3})
+> test.remove(3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'frozenset' object has no attribute 'remove'
+> test.add(4)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'frozenset' object has no attribute 'add'
+```
