@@ -1203,3 +1203,163 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 AttributeError: 'frozenset' object has no attribute 'add'
 ```
+
+# Functions
+
+When you call a function with arguments, the values of the arguments are copied to the corresponding parameters inside the function body. 
+
+Python requires the `pass` statement to show that the function does nothing:
+
+```python
+> def nothing():
+...     pass
+... 
+> nothing()
+>
+```
+
+Positional argument values are copied to their corresponding parameters in order:
+
+```python
+> def menu(wine, entree, dessert):
+...     return {'wine': wine, 'entree': entree, 'dessert': dessert}
+... 
+> menu('Pino noir', 'Ribeye', 'Chocolate cake')
+{'wine': 'Pino noir', 'entree': 'Ribeye', 'dessert': 'Chocolate cake'}
+```
+## Default Parameter Values
+
+The default value is used if the caller does not provide a corresponding argument.
+
+```python
+
+> def menu(wine, entree, dessert='ice cream'):
+...     return {'wine': wine, 'entree': entree, 'dessert': dessert}
+... 
+> menu('Chardonnay', 'Tilapia')
+{'wine': 'Chardonnay', 'entree': 'Tilapia', 'dessert': 'ice cream'}
+
+```
+Do not use data structures, such as lists, as default values. Mutable values are instantiated with the function is defined, not when it is run:
+
+```python
+
+# The first sample creates the list when the function is
+# defined, and it retains the values throughout calls
+> def todo(arg, tasks=[]):
+...     tasks.append(arg)
+...     print(tasks)
+... 
+> todo('shop')
+['shop']
+> todo('clean')
+['shop', 'clean']
+
+# Using None as the default allows you instantiate the list each time
+> def todo(arg, result=None):
+...     if result is None:
+...             result = []
+...     result.append(arg)
+...     print(result)
+... 
+> todo('shop')
+['shop']
+> todo('clean')
+['clean']
+```
+
+## None vs False
+
+`None` is a special value that is not the same as `False`, although it might seem that way. Use `None` to distinguish a missing value from an empty value. Zero-valued objects like empty strings are all `False`, but not `None`.
+
+Use the `is` operator to test 
+
+```python
+> test = None
+> test
+> if test is None:
+...     print('Use the is operator')
+... 
+Use the is operator
+
+```
+
+## * parameter
+
+The `*<arg-name>` groups a variable number of positional arguments into a single tuple of parameter values:
+
+```python
+
+# All args are stored in a tuple
+> def print_args(*args):
+...     print('positional tuple:', args)
+... 
+> print_args('one', 1, ['two', 'three'], 2, 'four')
+positional tuple: ('one', 1, ['two', 'three'], 2, 'four')
+
+
+# After the positional args are satisfied, all args are stored in a tuple
+> def multi_args(a1, a2, *args):
+...     print('First:\t', a1)
+...     print('Second:\t', a2)
+...     print('Rest:\t', args)
+... 
+> multi_args('one', 'two', 3, 4, 5, 6, 7, 8, 9)
+First:	 one
+Second:	 two
+Rest:	 (3, 4, 5, 6, 7, 8, 9)
+```
+## ** keyword argument parameter
+
+The `**<arg-name>` groups keywords into a dictionary, where the first word is the key and the second the value. It is common to name this argument `kwargs`:
+
+```python
+
+# No args
+> print_kwargs()
+Keyword arguments: {}
+
+# adding args
+> print_kwargs(first=1, second=2, third=3)
+Keyword arguments: {'first': 1, 'second': 2, 'third': 3}
+```
+
+## Docstrings
+
+Add docstrings to explain your functions. Use `'` for a single line. For longer quotes, place `'''` at the beginning and end of the quote, where the quotes are on their own line:
+
+```python
+> def printer(arg):
+...     print(arg)
+... 
+> def printer(arg):
+...     'printer prints any argument to the console'
+...     print(arg)
+
+# Multi-line docstrings
+> def print_if_true(arg, check):
+...     '''
+...     Prints the first argument if a second argument is true.
+...     The operation is:
+...             1. Check whether the *second* argument is true.
+...             2. If it is, print the *first* argument.
+...     '''
+...     if check:
+...             print(thing)
+... 
+
+# Pass the function name to the help() function to print the docstring
+> help(print_if_true)
+```
+
+The __doc__ dunder method is the internal name of the docstring as a variable within the function. Use it to access the docstring for a function:
+
+```python
+> print(print_if_true.__doc__)
+
+	Prints the first argument if a second argument is true.
+	The operation is:
+		1. Check whether the *second* argument is true.
+		2. If it is, print the *first* argument.
+
+```
