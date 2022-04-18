@@ -1352,7 +1352,7 @@ Add docstrings to explain your functions. Use `'` for a single line. For longer 
 > help(print_if_true)
 ```
 
-The __doc__ dunder method is the internal name of the docstring as a variable within the function. Use it to access the docstring for a function:
+The `__doc__` dunder method is the internal name of the docstring as a variable within the function. Use it to access the docstring for a function:
 
 ```python
 > print(print_if_true.__doc__)
