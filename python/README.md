@@ -1466,3 +1466,27 @@ Ringo
 
 ## Generators
 
+A generator is a sequence creation object that iterates through huge sequences without creating and storing the entire sequence in memory. `range()` is an example.
+
+The generator keeps track of where it was the last time it was called and returns the next value.
+
+To write a generator, use a `yield` statement instead of `return`:
+
+```python
+> def new_range(first=0, last=10, step=1):
+...     number = first
+...     while number < last:
+...             yield number
+...             number += step
+... 
+> test = new_range(1, 5)
+> type(test)
+<class 'generator'>
+> test
+<generator object new_range at 0x7f223d687dd0>
+
+```
+
+## Decorators
+
+A decorator is a funciton that takes one function as input and returns another function.
