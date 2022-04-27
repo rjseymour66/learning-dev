@@ -1489,4 +1489,119 @@ To write a generator, use a `yield` statement instead of `return`:
 
 ## Decorators
 
-A decorator is a funciton that takes one function as input and returns another function.
+A decorator is a function that takes one function as input and returns another function.
+
+```python
+> def document_func(func):
+     def new_function(*args, **kwargs):
+             print('Running function:', func.__name__)
+             print('Positional args:', args)
+             print('Keyword args:', kwargs)
+             result = func(*args, **kwargs)
+             print('Result:', result)
+             return result
+     return new_function
+ 
+> def add_ints(a, b):
+     return a + b
+ 
+> add_ints(4, 5)
+9
+> doc_add_ints = document_func(add_ints)
+> doc_add_ints(3, 5)
+Running function: add_ints
+Positional args: (3, 5)
+Keyword args: {}
+Result: 8
+8
+```
+Use the `@decorator-name` before the function that you want to decorate:
+
+```python
+> @document_func
+ def add_ints(a, b):
+     return a + b
+ 
+> add_ints(4, 5)
+Running function: add_ints
+Positional args: (4, 5)
+Keyword args: {}
+Result: 9
+9
+
+# Multiple decorators per function
+@document_func
+@times_three_func
+def add_ints(4, 5)
+    ...
+```
+# Exceptions
+
+Exceptions are code that is executed when an error occurs. Use `try` to wrap code that might fail for whatever reason, and use `except` to handle the error:
+
+```python
+> alist = [0, 1, 2, 3, 4]
+> bad_index = 6
+> alist[bad_index]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+
+# With error handling
+> try:
+    alist[bad_index]
+  except:
+    print('Requires an index between 0 and ', len(alist)-1, ' but got', bad_index)
+ 
+Requires an index between 0 and  4  but got 6
+```
+Provide an `except` for each possible exception that might occur. You can capture the full exception object in a variable as follows:
+
+`except` *exceptiontype* `as` *name*:
+
+```python
+> alist = [1, 2, 3]
+> bad_index = 4
+
+# Function that catches exceptions
+> def exception_func(the_list, index):
+     try:
+             the_list[index]
+     except IndexError as err:
+             print('Requires index between 0 and ', len(the_list)-1,' but got', index)
+     except Exception as other:
+             print('There was a different error:', other)
+
+# Throw IndexError 
+> exception_func(alist, 5)
+Requires index between 0 and  2  but got 5
+
+# Throw Exception
+> exception_func(alist, 'dog')
+There was a different error: list indices must be integers or slices, not str
+```
+
+## Defining your own Exceptions
+
+Python's standard library provides predefined exceptions, but you can also define your own by inheriting the `Exception` class:
+
+```python
+> class UppercaseException(Exception):
+     print('You threw the UpperclassException!')
+ 
+> words = ['one', 'two', 'three', 'FOUR']
+> words
+['one', 'two', 'three', 'FOUR']
+
+# Throw the exception that you made
+> for word in words:
+     if word.isupper():
+             raise UppercaseException(word)
+ 
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+__main__.UppercaseException: FOUR
+
+```
+
+# Objects
