@@ -1663,3 +1663,26 @@ In the previous example:
 5. Returns the new object.
 6. Assigns the variable `mr_smith` to the object.
 
+## Inheritance
+
+Inheritance is when you create a new class from an existing one, with some modifications. In a child class, you define only what you need to add or change in the new class, and that overrides the behavior of the old class.
+
+To inherit from a parent class, define a subclass and pass the name of the parent in the parentheses:
+
+```python
+> class Guitar():
+     def ring(self):
+             print('raaaaannnngggg')
+ 
+> class Fender(Guitar):
+     pass
+ 
+> issubclass(Fender, Guitar)
+True
+
+# The subclass accesses methods from the parent
+> blackie = Fender()
+> blackie.ring()
+raaaaannnngggg
+
+```
