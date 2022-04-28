@@ -1638,7 +1638,7 @@ Assign object attributes at creation time with the `__init__()` method.
 In the previous example:
 
 - `__init__()` is the special name for a method that initializes an object from its class definition. It is a constructor.
-- `self` argument specifies that the `__init__()` method refers to the individual object itself.
+- `self` argument specifies that the `__init__()` method refers to the individual object itself. You also have to pass `self` as the first argument to an instance method.
 
 ## Initializers, not constructors
 
