@@ -1605,3 +1605,61 @@ __main__.UppercaseException: FOUR
 ```
 
 # Objects
+
+An object is a data structure that contains data, stored in attributes, and behavior, called methods (or functions).
+
+## Simple objects
+
+```python
+
+# Create a dog class
+> class Dog():
+     pass
+
+# Instantiate a few dog objects
+> fido = Dog()
+> fido
+<__main__.Dog object at 0x7f3c175ecfa0>
+> pluto = Dog()
+> pluto
+<__main__.Dog object at 0x7f3c18c230d0>
+
+```
+
+## Adding attributes
+
+Assign object attributes at creation time with the `__init__()` method.
+
+```python
+> class Teacher:
+     def __init__(self):
+             pass
+```
+In the previous example:
+
+- `__init__()` is the special name for a method that initializes an object from its class definition. It is a constructor.
+- `self` argument specifies that the `__init__()` method refers to the individual object itself.
+
+## Initializers, not constructors
+
+`__init__()` is an initializer, not a constructor. After Python finds the class code, it creates an object. `__init()__` initializes that object with the attributes and methods that make it unique. You do not need to have an `__init()__` method for each class definition. `__init()__` is used to distinguish each object of the class from one another.
+
+Its first parameter must be `self` so that it can assign any attributes to the object. For example:
+
+```python
+> class Teacher:
+     def __init__(self, name):
+             self.name = name
+
+> mr_smith = Teacher('Smith')
+> mr_smith.name
+'Smith'
+```
+In the previous example:
+1. Python looks up the Teacher class.
+2. Instantiates a new object in memory
+3. Calls the object's `__init()__` method and passes the new object to `__init()__` as `self`, and the argument as the `name` attribute.
+4. Stores the value of `name` in the object
+5. Returns the new object.
+6. Assigns the variable `mr_smith` to the object.
+
