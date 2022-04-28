@@ -1671,7 +1671,7 @@ To inherit from a parent class, define a subclass and pass the name of the paren
 
 ```python
 > class Guitar():
-     def ring(self):
+     def strum(self):
              print('raaaaannnngggg')
  
 > class Fender(Guitar):
@@ -1682,7 +1682,62 @@ True
 
 # The subclass accesses methods from the parent
 > blackie = Fender()
-> blackie.ring()
+> blackie.strum()
 raaaaannnngggg
 
+# Override the strum method
+> class Fender(Guitar):
+     def strum(self):
+             print('brrroooooonnnnngggggg')
+ 
+> blackie = Fender()
+
+# Python looks up the class of the object 'blackie'
+# Passes the object 'blackie' as the self param to the strum() method of the class
+> blackie.strum()
+brrroooooonnnnngggggg
+
+# Overriding __init__()
+> class Person():
+     def __init__(self, name):
+             self.name = name
+ 
+> class MDPerson(Person):
+     def __init__(self, name):
+             self.name = "Doctor " + name
+ 
+> class JDPerson(Person):
+     def __init__(self, name):
+             self.name = name + ", Esquire"
+ 
+> person = Person('Jack')
+> doctor = MDPerson('Jack')
+> lawyer = JDPerson('Jack')
+> print(person.name)
+Jack
+> print(doctor.name)
+Doctor Jack
+> print(lawyer.name)
+Jack, Esquire
 ```
+### super()
+
+`super()` calls a parent method. The `__init__()` method for a child class replaces the __init__() method for the parent class:
+
+```python
+> class Person():
+     def __init__(self, name):
+             self.name = name
+
+> class EmailPerson(Person):
+     def __init__(self, name, email):
+             super().__init__(name)
+             self.email = email
+```
+
+In the previous example:
+- `super()` gets the definition of the parent class, Person
+- `__init__()` calls the Person.__init__() method. It passes the self arg to the superclass, so it needs any optional arguments that the superclass __init__() method needs
+- `self.email = email` assigns a value to email, which is the attribute that makes the child class unique
+
+Use `super()` to make sure that you always inherit from the superclass, especially if the superclass changes in the future.
