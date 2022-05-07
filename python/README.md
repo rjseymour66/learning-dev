@@ -1811,7 +1811,7 @@ You can assign attributes with default values to classes and change them in any 
 There are three main method types:
 
 - *instance method*: First argument is `self`. `self` refers to the individual object.  
-- *class method*: First argument is `cls` (or anything you want, just be consistent). `cls` refers to the class itself.
+- *class method*: First argument is `cls` (or anything you want, just be consistent). `cls` refers to the class itself.  
   Precede class methods with the `@classmethod` decorator.  
   Any change you make to the class affects all of the objects instantiated from the class.
 - *static method*: No first argument. Precede static methods with the `@staticmethod` decorator.
