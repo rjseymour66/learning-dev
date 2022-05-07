@@ -1810,10 +1810,42 @@ You can assign attributes with default values to classes and change them in any 
 
 There are three main method types:
 
-- *instance method*: First argument is `self`. `self` refers to the individual object.  
-- *class method*: First argument is `cls` (or anything you want, just be consistent). `cls` refers to the class itself.  
+- *instance*: First argument is `self`. `self` refers to the individual object.  
+- *class*: First argument is `cls` (or anything you want, just be consistent). Naming it `cls` is Pythonic and refers to the class itself. The first parameter refers to the class itself.  
   Precede class methods with the `@classmethod` decorator.  
   Any change you make to the class affects all of the objects instantiated from the class.
-- *static method*: No first argument. Precede static methods with the `@staticmethod` decorator.
+- *static*: No first argument. Precede static methods with the `@staticmethod` decorator.  
+  Static mthods do not affect the class or its objects, it's a convenience method.
 
-### Instance methods
+To demonstrate a class method, we create a class that tracks the number of objects created using it:
+
+```python
+> class ChildCounter():
+     count = 0
+     def __init__(self):
+             # set the class attribute with the class name 
+             ChildCounter.count += 1
+     def exclaim(self):
+             print("I'm in the ChildCounter() class!")
+     @classmethod
+     def children(cls):
+             # access the class with cls    
+             print('ChildCounter has ', cls.count, 'child objects.')
+ 
+> first = ChildCounter()
+> second = ChildCounter()
+> third = ChildCounter()
+> ChildCounter.count
+```
+
+To demonstrate a static method, we create a simple class with a method that does not require an object:
+
+```python
+> class Nike():
+     @staticmethod
+     def slogan():
+             print('Just Do it')
+ 
+> Nike.slogan()
+Just Do it
+```
