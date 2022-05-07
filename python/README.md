@@ -1741,3 +1741,79 @@ In the previous example:
 - `self.email = email` assigns a value to email, which is the attribute that makes the child class unique
 
 Use `super()` to make sure that you always inherit from the superclass, especially if the superclass changes in the future.
+
+## Getters and Setters
+
+Python doesn't have a way to make attributes private. The best way to handle this is with 'secret' attribute names and **properties**. Use the following decorators:
+- `@property` for the getter method.
+- `@<name>`.setter for the setter method. If you don't specify a setter property for an attribute, you can't set it from outside code.
+
+Prepend hidden attribute names with double underscores (`__`). For example, `__hidden_attribute`.
+
+In the following example, the object has an attribute `__name` that cannot be accessed from outside the class. However, you can set it with the getters and setters:
+
+```python
+> class Person():
+     def __init__(self, name):
+             self.__name = name
+     @property
+     def name(self):
+             print('getter method')
+             return self.__name
+     @name.setter
+     def name(self, name):
+             print('setter method')
+             self.__name = name
+ 
+> musician = Person('Paul')
+> musician.name
+getter method
+'Paul'
+> musician.name = 'John'
+setter method
+> musician.name
+getter method
+'John'
+```
+
+Python changes the hidden attributes to look like this:
+
+```python
+> musician._Person__name
+'John'
+```
+
+## Class and object attributes
+
+You can assign attributes with default values to classes and change them in any objects:
+
+```python
+> class Boots:
+     color = 'brown'
+ 
+> red_wing = Boots()
+
+> red_wing.color
+'brown'
+
+> red_wing.color = 'tan'
+> red_wing.color
+'tan'
+
+# default class value is preserved
+> Boots.color
+'brown'
+
+```
+
+## Method types
+
+There are three main method types:
+
+- *instance method*: First argument is `self`. `self` refers to the individual object.
+- *class method*: First argument is `cls` (or anything you want, just be consistent). `cls` refers to the class itself.
+  Precede class methods with the `@classmethod` decorator. 
+  Any change you make to the class affects all of the objects instantiated from the class.
+- *static method*: No first argument. Precede static methods with the `@staticmethod` decorator.
+
+### Instance methods
