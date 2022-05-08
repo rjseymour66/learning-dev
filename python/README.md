@@ -1849,3 +1849,15 @@ To demonstrate a static method, we create a simple class with a method that does
 > Nike.slogan()
 Just Do it
 ```
+
+## Magic methods
+
+Magic methods are methods that Python recongnizes that you can define on your objects. Here is a good list of [magic methods](https://docs.python.org/3/reference/datamodel.html#special-method-names).
+
+Common ones are:
+
+| Method                | Implementation | Description                                                |
+|-----------------------+----------------+------------------------------------------------------------|
+| `__eq__(self, other)` | self == other  | checks if `self` is equal to `other`                       |
+| `__str__(self)`       | str(self)      | returns a string of your object. How you print your object |
+| `__len__(self)`       | len(self)      | returns the length of `self`                               |
