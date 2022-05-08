@@ -1858,6 +1858,34 @@ Common ones are:
 
 | Method                | Implementation | Description                                                |
 |-----------------------|----------------|------------------------------------------------------------|
-| __eq__(self, other)   | self == other  | checks if `self` is equal to `other`                       |
+| `__eq__(self, other)` | self == other  | checks if `self` is equal to `other`                       |
 | `__str__(self)`       | str(self)      | returns a string of your object. How you print your object |
 | `__len__(self)`       | len(self)      | returns the length of `self`                               |
+
+## Aggregation and Composition
+
+Build objects with objects, like this boat:
+
+```python
+> class Sail():
+     def __init__(self, description):
+             self.description = description
+ 
+> class Tiller():
+     def __init__(self, length):
+             self.length = length
+ 
+> class Boat():
+     def __init__(self, sail, tiller):
+             self.sail = sail
+             self.tiller = tiller
+     def about(self):
+             print('This boat has a', self.sail.description, 'sail and a', self.tiller.length, 'long tiller')
+ 
+> sail = Sail('blue and white')
+> tiller = Tiller('5 ft')
+> boat = Boat(sail, tiller)
+> boat.about()
+This boat has a blue and white sail and a 5 ft long tiller
+
+```
