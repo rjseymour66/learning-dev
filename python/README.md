@@ -1857,7 +1857,7 @@ Magic methods are methods that Python recongnizes that you can define on your ob
 Common ones are:
 
 | Method                | Implementation | Description                                                |
-|-----------------------+----------------+------------------------------------------------------------|
+|-----------------------|----------------|------------------------------------------------------------|
 | `__eq__(self, other)` | self == other  | checks if `self` is equal to `other`                       |
 | `__str__(self)`       | str(self)      | returns a string of your object. How you print your object |
 | `__len__(self)`       | len(self)      | returns the length of `self`                               |
