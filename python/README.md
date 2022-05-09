@@ -1889,3 +1889,50 @@ Build objects with objects, like this boat:
 This boat has a blue and white sail and a 5 ft long tiller
 
 ```
+
+## Named tuples
+
+Named tuples are a type of tuples that you can access values by `.name` and position with [offset]. You have to load the `namedtuple` module, and they use the following format:
+
+`namedtuple('Type-name', 'attr1 attr2[ ...]')`
+
+```python
+This boat has a blue and white sail and a 5 ft long tiller
+> from collections import namedtuple
+> Boat = namedtuple('Boat', 'sail tiller')
+> boat = Boat('blue', 'rudder')
+> boat
+Boat(sail='blue', tiller='rudder')
+> boat.sail
+'blue'
+> boat.tiller
+'rudder'
+```
+
+## Dataclasses
+
+Data classes let you create objects that store only data--they don't have behavior. To define a dataclass, you have to do the following things:
+
+1. Import dataclass
+2. Use the `@dataclass` decorator
+3. Define attributes with the variable annotations form of `name: type` or `name: type = val`
+
+Here is how you define a dataclass:
+
+```python
+> from dataclasses import dataclass
+> @dataclass
+ class GuitarClass:
+     brand: str
+     color: str
+     price: int = 0  # 0 is the default value
+ 
+> strat = GuitarClass('Fender', 'Black', 1000)
+> strat
+GuitarClass(brand='Fender', color='Black', price=1000)
+
+# Define attributes in any order with named arguments
+> les_paul = GuitarClass(price=2500, brand='gibson', color='honeyburst')
+> les_paul
+GuitarClass(brand='gibson', color='honeyburst', price=2500)
+```
