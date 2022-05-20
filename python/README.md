@@ -67,6 +67,8 @@ requirements_locked.txt is a copy of requirements.txt
 	requirements_dev.txt	dev env
 	requirements_locked.txt	prod env
 
+# Project setup
+
 # Basics
 
 ## Operators
