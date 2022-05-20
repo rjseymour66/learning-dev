@@ -1936,3 +1936,5 @@ GuitarClass(brand='Fender', color='Black', price=1000)
 > les_paul
 GuitarClass(brand='gibson', color='honeyburst', price=2500)
 ```
+
+# Data and encoding
