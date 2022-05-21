@@ -19,4 +19,7 @@ go test -v .
 ## Test methods and usage
 ```go
 t.Errorf('Message to print when the test fails %d', variable)
+
+// %+v prints the structs field names
+t.Errorf("Expected %+v Got %+v", expectedMoneyAfterDivision, actualMoneyAfterDivision)
 ```
