@@ -1,6 +1,22 @@
 # Project setup
 
+## Modules
 
+A Go code repository comprises of exactly one module. The module includes packages, and these packages include source files. To create a module, go to the top-level directory of the project and enter the following command:
+
+```bash
+go mod init <project-name>
+```
+The preceding command creates a `go.mod` file in the top-level of your project that lists your project name at the top.
+
+## Packages
+
+Packages are directories in a go project. The name of the directory is the package name. For example, source files in the `go-src/stocks/` package are in the `stocks` package. At the top of the file, declare package names with `package <package-name>`, and import packages with the `import <package-name>` statement.
+> `import` statements use the fully-qualified package name. This begins with the module name containing the package. For example, `import go-src/<package-name>`
+
+Prepend any imported package code with the package name, or an alias for the package: `alias package/name`. For example, `s go-src/stocks` allows you to prepend any code with `s.`, such as `s.Investment`.
+
+*main*: any program that has to run as an application must be in the `main` package.
 
 # Arrays
 
