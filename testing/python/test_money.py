@@ -6,6 +6,7 @@ from portfolio import Portfolio
 
 class TestMoney(unittest.TestCase):
 
+    # run before each test
     def setUp(self):
         self.bank = Bank()
         self.bank.addExchangeRate("EUR", "USD", 1.2)
@@ -67,6 +68,9 @@ class TestMoney(unittest.TestCase):
     def testConversion(self):
         tenEuros = Money(10, "EUR")
         self.assertEqual(self.bank.convert(tenEuros, "USD"), Money(12, "USD"))
+
+        self.bank.addExchangeRate("EUR", "USD", 1.3)
+        self.assertEqual(self.bank.convert(tenEuros, "USD"), Money(13, "USD"))
 
     def testConversionWithMissingExchangeRate(self):
         bank = Bank()
